@@ -3877,7 +3877,8 @@ body.modal-open {
   }
 
   .video-modal-header {
-    padding: 20px 48px 8px 17px;
+    padding: 20px 48px 8px 55px;
+    text-align: left;
   }
 
   .video-modal-header .kicker {
@@ -3885,7 +3886,7 @@ body.modal-open {
   }
 
   .video-modal-header h3 {
-    font-size: 23px;
+    font-size: 17px;
   }
 
   .video-modal-close {
@@ -3930,21 +3931,33 @@ body.modal-open {
     transform: translate(-50%, -90%);
   }
 
-  .gallery-thumbs {
-    margin-top: 13px;
-    gap: 7px;
-  }
-
-  .gallery-thumb {
-    width: 78px;
-    height: 55px;
-  }
-
-  #mainDriveVideo {
-    min-height: 0;
-  }
+.gallery-thumbs {
+  display: flex;
+  justify-content: flex-start;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 4px 37px 4px;     /* top 4px = gold border clip avvakunda */
 }
 
+.gallery-thumb {
+  flex: 0 0 auto;
+  width: 74px;
+  height: 52px;
+}
+
+.gallery-thumb:first-child {
+  margin-left: auto;
+}
+
+.gallery-thumb:last-child {
+  margin-right: auto;
+}
+
+.gallery-thumb.is-active {
+  border-color: var(--gold);
+  transform: none;
+}
+}
 
 /* =========================================================
    INSTAGRAM VIDEO MODAL — MOBILE
@@ -3981,7 +3994,9 @@ body.modal-open {
     height: 48px;
     transform: none;
   }
-
+  .video-modal-panel:has(.instagram-video) .video-modal-header {
+    padding: 20px 48px 8px 90px;
+  }
   #mainDriveVideo {
     min-height: 0;
   }
@@ -4120,4 +4135,62 @@ header.nav {
   .work-dark .slide-play {
     transition: none;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   16 / FAST CLICK RESPONSE
+   ========================================================= */
+
+a,
+button,
+.svc-btn,
+.slide-card,
+.gallery-thumb,
+.gallery-nav,
+.main-play-btn,
+.video-modal-close,
+.menu-btn {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.video-modal {
+  transition: opacity .2s, visibility .2s;
+}
+
+.video-modal-panel {
+  transition: transform .2s;
+}
+
+.services .svc-btn,
+.contact-btn,
+.btn-pill,
+.resume-btn,
+.gallery-nav,
+.gallery-thumb {
+  transition-duration: .15s;
 }

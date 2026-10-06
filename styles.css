@@ -2011,6 +2011,7 @@ iframe {
   align-items: stretch;
   gap: 30px;
   width: max-content;
+  
   animation: marqueeLTR 44s linear infinite;
   will-change: transform;
 }
@@ -2020,13 +2021,12 @@ iframe {
 }
 
 @keyframes marqueeLTR {
-
   from {
-    transform: translateX(-50%);
+    transform: translateX(0);
   }
 
   to {
-    transform: translateX(0);
+    transform: translateX(-50%);
   }
 }
 
@@ -2163,8 +2163,8 @@ iframe {
   content: "";
   position: absolute;
   top: 0;
-  left: 20px;
-  width: 28px;
+  left: 5px;
+  width: 38px;
   height: 1px;
   background: var(--gold);
   opacity: .7;
@@ -2209,10 +2209,10 @@ iframe {
   }
 
   .work-dark .marquee-track {
-    gap: 22px;
-    animation-duration: 39s;
+    gap: 14px;
+    animation-duration: 32s;
+    animation-direction: normal !important;
   }
-
   .work-dark .slide-card {
     width: min(360px, 76vw);
   }
@@ -4141,26 +4141,6 @@ header.nav {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* =========================================================
    16 / FAST CLICK RESPONSE
    ========================================================= */
@@ -4193,4 +4173,85 @@ button,
 .gallery-nav,
 .gallery-thumb {
   transition-duration: .15s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================================
+   17 / MOBILE CUSTOM VIDEO CONTROLS (work cards)
+   ========================================================= */
+
+.mc-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 8;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 18px 12px 9px;
+  background: linear-gradient(to top, rgba(0, 0, 0, .7), transparent);
+  color: #fff;
+  font-size: 11px;
+}
+
+.mc-play {
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 13px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.mc-time {
+  flex: 0 0 auto;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .02em;
+}
+
+.mc-track {
+  position: relative;
+  flex: 1;
+  height: 14px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.mc-track::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, .3);
+}
+
+.mc-fill {
+  position: relative;
+  height: 3px;
+  width: 0%;
+  border-radius: 3px;
+  background: #fff;
 }
